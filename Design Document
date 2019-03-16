@@ -1,0 +1,112 @@
+# Design Document
+
+### 1.Data structures and functions
+
+写下要添加或修改的任何结构定义、全局(或静态)变量、typedefs或枚举(如果它已经存在)。这些定义应该用C语言编写，而不是用伪代码。包括每个修改的目的的简要说明。
+
+##### Task 1: Efficient Alarm Clock
+
+​	We know that *Timer_sleep* function is in *devices/timer.c.* The system is now implemented using busy wait, where threads loop endlessly until the time slice is exhausted. Now we want to change how timer_sleep is implemented.
+
+
+
+##### 	Task 2: Priority Scheduler
+
+
+
+##### 	Task 3: Multi-level Feedback Queue Scheduler (MLFQS)
+
+
+
+##### 	Task 4: Test Pintos with GDB
+
+
+
+
+
+2. ### Algorithms
+
+这是您告诉我们代码将如何工作的地方。您的描述应该位于代码本身之上的级别。不要逐行列出计划编写的代码。本节的长度取决于任务的复杂性和设计的复杂性。简单的解释是首选，但如果你的解释含糊或没有提供足够的细节，你将受到惩罚。对于复杂的任务，比如优先级调度程序，我们建议您将任务分成多个部分。在单独的部分中描述每个部分的算法。
+
+##### Task 1: Efficient Alarm Clock
+
+​	Now that we know that the old code is implemented through a loop, let's have an open source analysis to find its problem.
+
+Here is the timer_sleep implementation in timer.c in the devices directory:
+
+```c
+void
+timer_sleep (int64_t ticks)
+{
+  int64_t start = timer_ticks ();
+  ASSERT (intr_get_level () == INTR_ON);
+  while (timer_elapsed (start) < ticks)
+    thread_yield();
+}
+```
+
+
+
+
+
+
+
+##### 	Task 2: Priority Scheduler
+
+
+
+##### 	Task 3: Multi-level Feedback Queue Scheduler (MLFQS)
+
+
+
+##### 	Task 4: Test Pintos with GDB
+
+
+
+### Synchronization
+
+描述你的策略，以防止竞争条件。**这一节的结构应该是对共享资源的所有潜在并发访问的列表**。时间和内存方面，不要忘记将内存释放视为同步问题，如果创建新函数，应该考虑是否可以同时在两个线程中调用该函数。
+
+
+
+##### 	Task 1: Efficient Alarm Clock
+
+
+
+##### 	Task 2: Priority Scheduler
+
+
+
+##### 	Task 3: Multi-level Feedback Queue Scheduler (MLFQS)
+
+
+
+##### 	Task 4: Test Pintos with GDB
+
+
+
+
+
+4. ### Rationale
+
+告诉我们为什么你的设计比你考虑的其他方案更好，或者指出它可能存在的任何缺点。您应该考虑您的设计是否易于概念化，需要多少编码，算法的时间/空间复杂度，以及扩展您的设计以适应其他特性的难易程度。
+
+##### 	Task 1: Efficient Alarm Clock
+
+
+
+##### 	Task 2: Priority Scheduler
+
+
+
+##### 	Task 3: Multi-level Feedback Queue Scheduler (MLFQS)
+
+
+
+##### 	Task 4: Test Pintos with GDB
+
+
+
+
+
+5. ### Design Document Additional Questions
